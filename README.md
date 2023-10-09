@@ -2,8 +2,6 @@
 
 Built with the React 18.2, Redux-toolkit, React-router-dom, NextUI and TailwindCSS 
 
-![Project Image](https://github.com/joschan21/quill/blob/master/public/thumbnail.png)
-
 ## Features
 
 - 🛠️ Complete crypto app from scratch using coinRanking Api
@@ -19,7 +17,7 @@ Built with the React 18.2, Redux-toolkit, React-router-dom, NextUI and TailwindC
 1. To get started with this project, run
 
 ```bash
-  [https://github.com/13paras/cryptomania.git]
+  https://github.com/13paras/cryptomania.git
 ```
 
 2. Navigate into the project directory:
