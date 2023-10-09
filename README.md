@@ -1,8 +1,45 @@
-# React + Vite
+# CryptoMania - A one place for all your cryptocurrency info and news
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Built with the React 18.2, Redux-toolkit, React-router-dom, NextUI and TailwindCSS 
 
-Currently, two official plugins are available:
+![Project Image](https://github.com/joschan21/quill/blob/master/public/thumbnail.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- 🛠️ Complete crypto app from scratch using coinRanking Api
+- 🎨 Clean, Modern UI Using 'NextUI'
+- 🚀 Optimistic UI Updates for a Great UX
+- ⚡ Blazing Fast
+- 📤 display charts with chartJs
+- 🔧 Modern Data Fetching Using rtk query
+- 🎁 ...much more
+
+## Getting started
+
+1. To get started with this project, run
+
+```bash
+  [https://github.com/13paras/cryptomania.git]
+```
+
+2. Navigate into the project directory:
+
+    ```bash
+    cd cryptoMania
+    ```
+
+3. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+4. Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
