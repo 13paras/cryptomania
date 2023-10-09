@@ -10,10 +10,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        blackBackground: "#000000",
+        blackBackground: "#1d2021",
         paraText: "#99999b",
         heading: "#dfdfd7",
         cardBackground: "#252529",
+        blueBg: "#111827",
       },
     },
   },

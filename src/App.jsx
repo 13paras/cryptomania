@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Cryptocurrencies from "./components/Cryptocurrencies";
-import Exchanges from "./components/Exchanges";
-import News from "./components/News";
-import CryptoDetails from "./components/CryptoDetails";
-import Homepage from "./components/Homepage";
+import Cryptocurrencies from "./pages/Cryptocurrencies";
+import News from "./pages/News";
+import CryptoDetails from "./pages/CryptoDetails";
+import Homepage from "./pages/Homepage";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -13,15 +13,15 @@ const App = () => {
         <div>
           <Header />
         </div>
-        <div className='container mx-auto'>
+        <div className=' mx-10 lg:container lg:mx-auto'>
           <Routes>
             <Route path='/' element={<Homepage />} />
             <Route path='/cryptocurrencies' element={<Cryptocurrencies />} />
-            <Route path='/exchanges' element={<Exchanges />} />
             <Route path='/news' element={<News />} />
             <Route path='/crypto/:cryptoId' element={<CryptoDetails />} />
           </Routes>
         </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

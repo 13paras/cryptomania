@@ -15,9 +15,6 @@ const Header = () => {
             <Link to={"/cryptocurrencies"} className='mr-5 text-lg hover:text-paraText'>
               Cryptocurrencies
             </Link>
-            <Link to={"/exchanges"} className='mr-5 text-lg hover:text-paraText'>
-              Exchanges
-            </Link>
             <Link to={"/news"} className='mr-5 text-lg hover:text-paraText'>
               News
             </Link>

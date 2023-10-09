@@ -7,7 +7,7 @@ const TrendingCurrencies = () => {
   // console.log(data);
   if (isFetching) return "Loading...";
   return (
-    <div className='mx-auto mt-10 w-[55%] rounded-lg bg-zinc-700/25 p-3 shadow-[0_10px_30px_rgba(8,_112,_184,_0.3)] lg:w-[30%]'>
+    <div className='mt-10 w-[55%] rounded-lg bg-zinc-700/25 p-3 shadow-lg lg:w-[30%]'>
       <h3 className='text-center text-xl font-semibold text-red-500'>🔥 Trending Coins</h3>
       <ul>
         {data?.data?.coins.map((coin, index) => (
