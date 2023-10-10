@@ -3,15 +3,16 @@ import millify from "millify";
 import Cryptocurrencies from "./Cryptocurrencies";
 import { Link } from "react-router-dom";
 import TopGainerz from "../components/TopGainerz";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Homepage = () => {
-  const { data, isFetching } = useGetCryptosQuery({
+  const { data, isLoading } = useGetCryptosQuery({
     count: "10",
     timePeriod: "24h",
     orderBy: "marketCap",
   });
   const globalStats = data?.data?.stats;
-  if (isFetching) return "Loading...";
+  if (isLoading) return <LoadingSpinner />;
   return (
     <div className='mx-4'>
       <h2 className='mb-6 mt-10 text-5xl font-bold text-heading'>Market Overview (Stats) </h2>

@@ -6,7 +6,7 @@ import { GithubIcon, InstagramIcon } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className='body-font bg-black  text-gray-400'>
+    <footer className='body-font bg-black text-gray-400'>
       <div className='container mx-auto flex flex-col flex-wrap px-5 py-14 md:flex-row md:flex-nowrap md:items-center lg:items-center'>
         <div className='mx-auto w-64 flex-shrink-0 text-center md:mx-0 md:text-left'>
           <a className='title-font flex items-center justify-center font-medium text-white md:justify-start'>

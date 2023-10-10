@@ -1,14 +1,14 @@
 import { Avatar, Button, Select, SelectItem } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useGetCryptoNewsApiQuery } from "../services/cryptoNewsApi";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import NewsCard from "../components/NewsCard";
-import LoadingButton from "../components/LoadingButton";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const News = () => {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const [count, setCount] = useState(12);
-  const { data, isFetching } = useGetCryptoNewsApiQuery({ newsCategory, count });
+  const { data, isFetching, isLoading } = useGetCryptoNewsApiQuery({ newsCategory, count });
   const { data: cryptos } = useGetCryptosQuery({
     count: 150,
     timePeriod: "24h",
@@ -18,6 +18,8 @@ const News = () => {
   const onChangeHandler = e => {
     setNewsCategory(e.target.value);
   };
+
+  if (isLoading) return <LoadingSpinner />;
   return (
     <>
       <div className='my-10 flex items-center justify-between'>

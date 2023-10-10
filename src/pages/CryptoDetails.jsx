@@ -8,6 +8,7 @@ import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import LineChart from "../components/LineChart";
 import Stats from "../components/Stats";
 import { htmlToText } from "html-to-text";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const CryptoDetails = () => {
   const { cryptoId } = useParams();
@@ -19,15 +20,15 @@ const CryptoDetails = () => {
     timePeriod,
   });
   const coinDetails = data?.data?.coin;
-  const [priceInUSD, setPriceInUSD] = useState(coinDetails.price);
+  const [priceInUSD, setPriceInUSD] = useState(coinDetails?.price);
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
   useEffect(() => {
-    setPriceInUSD(coinValue * coinDetails.price);
+    setPriceInUSD(coinValue * coinDetails?.price);
   }, [coinValue]);
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <main className='mt-10'>

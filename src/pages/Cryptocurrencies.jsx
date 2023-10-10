@@ -20,6 +20,7 @@ import millify from "millify";
 import { useNavigate } from "react-router-dom";
 import { SearchIcon } from "lucide-react";
 import CryptoArticle from "../components/CryptoArticle";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const columns = [
   { name: "#", uid: "rank", sortable: true },
@@ -97,7 +98,7 @@ const Cryptocurrencies = ({ simplified }) => {
     setFilteredCoins(filterData);
   }, [search]);
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <LoadingSpinner />;
 
   const topContent = (
     <div className='flex items-center justify-between gap-4'>
