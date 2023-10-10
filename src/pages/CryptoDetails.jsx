@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Avatar, Button, Select, SelectItem, Tab, Tabs, Tooltip } from "@nextui-org/react";
+import { Avatar, Select, SelectItem } from "@nextui-org/react";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetCoinDetailQuery, useGetCoinHistoryQuery } from "../services/cryptoApi";
 import millify from "millify";
-import { ChevronDownIcon, ChevronUpIcon, HelpCircleIcon } from "lucide-react";
+import { ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import LineChart from "../components/LineChart";
 import Stats from "../components/Stats";
 import { htmlToText } from "html-to-text";
@@ -12,22 +12,22 @@ import { htmlToText } from "html-to-text";
 const CryptoDetails = () => {
   const { cryptoId } = useParams();
   const [timePeriod, setTimePeriod] = useState("30d");
-  const [unit, setUnit] = useState("1");
+  const [coinValue, setCoinValue] = useState("1");
   const { data } = useGetCoinDetailQuery(cryptoId);
-  const { data: coinHistory, isFetching } = useGetCoinHistoryQuery({
+  const { data: coinHistory, isLoading } = useGetCoinHistoryQuery({
     cryptoId,
     timePeriod,
   });
   const coinDetails = data?.data?.coin;
-  const [cryptoToUsd, setCryptoToUsd] = useState(millify(coinDetails?.price));
+  const [priceInUSD, setPriceInUSD] = useState(coinDetails.price);
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
   useEffect(() => {
-    console.log(unit);
-    console.log(millify(cryptoToUsd));
-    setCryptoToUsd(unit * coinDetails?.price);
-  }, [unit]);
+    setPriceInUSD(coinValue * coinDetails.price);
+  }, [coinValue]);
+
+  if (isLoading) return "Loading...";
 
   return (
     <main className='mt-10'>
@@ -81,28 +81,27 @@ const CryptoDetails = () => {
             <LineChart coinHistory={coinHistory} coinName={coinDetails.name} />
           </div>
 
+          {/* Converter */}
           <h3 className='mt-6 text-xl font-semibold text-paraText'>
             {" "}
             {coinDetails.name} to USD Converter{" "}
           </h3>
           <ul className='mt-6 flex items-center space-x-6 text-lg font-semibold'>
             <li>
-              <p>{CryptoDetails.name}</p>
+              <p className='uppercase'>{coinDetails.name}</p>
               <input
                 type='number'
-                id='bedrooms'
-                value={unit}
-                onChange={e => setUnit(e.target.value)}
+                min={0}
+                value={coinValue}
+                onChange={e => setCoinValue(e.target.value)}
                 className='w-full rounded-md border border-gray-700 bg-gray-800  px-4 py-2 text-center text-xl text-gray-400 transition duration-150 ease-in-out focus:border-slate-600 focus:bg-gray-800 focus:text-gray-400 '
               />
             </li>
             <li>
               <p>USD</p>
               <input
-                type='number'
-                id='bathrooms'
-                value={millify(cryptoToUsd)}
                 disabled
+                value={"$" + millify(priceInUSD)}
                 className='w-full rounded-md border border-gray-700 bg-gray-800  px-4 py-2 text-center text-xl text-gray-400 transition duration-150 ease-in-out focus:border-slate-600 focus:bg-gray-800 focus:text-gray-400 '
               />
             </li>

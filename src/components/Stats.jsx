@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Card, Divider, Tooltip } from "@nextui-org/react";
-import { Divide, HelpCircleIcon, TvIcon } from "lucide-react";
+import { HelpCircleIcon } from "lucide-react";
 import {
   AlertCircle,
   Check,
@@ -25,7 +25,7 @@ const Stats = ({ coinDetails }) => {
     { title: "Rank", value: coinDetails?.rank, icon: <Hash /> },
     {
       title: "24h Volume",
-      value: `$ ${coinDetails?.volume && millify(coinDetails?.volume)}`,
+      value: `$ ${coinDetails["24hVolume"] && millify(coinDetails["24hVolume"])}`,
       icon: <Zap />,
       tooltip: (
         <Tooltip
